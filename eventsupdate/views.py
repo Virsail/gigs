@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from .models import User, Event, Category
+
+from django.contrib.auth import authenticate, login, logout
+
 from django.contrib import messages 
 
 
@@ -28,5 +31,17 @@ def registerPage(request):
 
 
 def loginPage(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user = not None:
+            login(request, username)
+            redirect 
+
+
     context = {}
     return render(request, 'accounts/login.html', context)
