@@ -39,8 +39,12 @@ def loginPage(request):
         user = authenticate(request, username=username, password=password)
 
         if user = not None:
-            login(request, username)
-            redirect 
+            login(request, user)
+
+            return redirect('index')
+
+            else:
+                messages.info(request, 'Username or password is incorrect')
 
 
     context = {}
