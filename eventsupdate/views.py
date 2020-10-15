@@ -10,13 +10,16 @@ from django.contrib import messages
 
 
 def registerPage(request):
-    form = UserCreationForm
+    form = CreateUserForm
 
 
     if request.method == 'POST':
          form = UserCreationForm(request.POST)
          if form.is_valid():
              form.save
+             user = form.cleaned_data.get('username')
+
+             messages.success(request, 'Account has been created Successfully for ' + )
 
              return redirect('login')
 
