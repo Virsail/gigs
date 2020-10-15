@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
+from .models import User, Event, Category
 
 
 # Create your views here.
-from .models import User, Event, Category
 
 
 def registerPage(request):
