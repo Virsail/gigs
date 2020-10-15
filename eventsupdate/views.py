@@ -4,4 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
-from .models import Image, Location
+from .models import User, Event, Category
+
+
+def registerPage(request):
+    form = UserCreationForm
