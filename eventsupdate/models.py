@@ -1,8 +1,6 @@
 from django.db import models
 import datetime as dt
-import DJANGO_SETTINGS_MODULE=events.settings
-from pyuploadcare.dj.models import ImageField
-from pyuploadcare.dj.forms import FileWidget
+
 
 
 # Create your models here.
