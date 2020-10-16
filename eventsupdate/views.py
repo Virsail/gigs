@@ -15,56 +15,52 @@ from django.contrib import messages
 def registerPage(request):
      if request.user.is_authenticated:
          return redirect('templates/index.html')
-         else:
-
-             form = CreateUserForm
-
-
-
-             if request.method == 'POST':
+     else:
+            form = CreateUserForm
+     if request.method == 'POST':
                  form = UserCreationForm(request.POST)
-                 if form.is_valid():
-                     form.save
-                     user = form.cleaned_data.get('username')
+     if form.is_valid():
+        form.save
+        user = form.cleaned_data.get('username')
 
-                     messages.success(request, 'Account has been created Successfully for ' + )
+        messages.success(request, 'Account has been created Successfully for ' + user)
 
-                     return redirect('accounts/login.html')
+        return redirect('accounts/login.html')
 
-             context = {'form':form}
-           return render(request, 'accounts/register.html', context)
+        context = {'form':form}
+        return render(request, 'accounts/register.html', context)
 
 
 def loginPage(request):
-     if request.user.is_authenticated:
+    if request.user.is_authenticated:
          return redirect('templates/index.html')
-         else:
+    else:
 
 
-             if request.method == 'POST':
-                 username = request.POST.get('username')
-                 password = request.POST.get('password')
+        if request.method == 'POST':
+                username = request.POST.get('username')
+                password = request.POST.get('password')
 
-                 user = authenticate(request, username=username, password=password)
+                user = authenticate(request, username=username, password=password)
 
-                 if user = not None:
-                     login(request, user)
+                if user is not None:
+                        login(request, user)
 
-                     return redirect('templates/index.html')
+                return redirect('templates/index.html')
 
-                     else:
-                         messages.info(request, 'Username or password is incorrect')
-                        
-             context = {}
-             return render(request, 'accounts/login.html', context)
+        else:
+                messages.info(request, 'Username or password is incorrect')
+                            
+                context = {}
+        return render(request, 'accounts/login.html', context)
 
- def logoutUser(request):
-     logout(request)
-     return redirect('accounts/login.html')
+def logoutUser(request):
+    logout(request)
+    return redirect('accounts/login.html')
 
 @login_required(login_url='/accounts/login.html/')
 def index(request):
-    return render(request, 'templates/index.html')
+      return render(request, 'templates/index.html')
 
 
 
