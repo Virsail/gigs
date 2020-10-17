@@ -3,6 +3,7 @@ chardet==3.0.4
 confusable-homoglyphs==3.2.0
 Django==1.11.17
 django-registration==2.4.1
+django-tinymce==3.1.0
 idna==2.10
 Pillow==8.0.0
 psycopg2==2.8.6

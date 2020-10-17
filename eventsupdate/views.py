@@ -14,7 +14,7 @@ from django.contrib import messages
 
 def registerPage(request):
      if request.user.is_authenticated:
-         return redirect('templates/index.html')
+         return redirect('index.html')
      else:
             form = CreateUserForm
      if request.method == 'POST':
@@ -25,15 +25,15 @@ def registerPage(request):
 
         messages.success(request, 'Account has been created Successfully for ' + user)
 
-        return redirect('accounts/login.html')
+        return redirect('login.html')
 
         context = {'form':form}
-        return render(request, 'accounts/register.html', context)
+        return render(request, 'register.html', context)
 
 
 def loginPage(request):
     if request.user.is_authenticated:
-         return redirect('templates/index.html')
+         return redirect('index.html')
     else:
 
 
@@ -46,21 +46,21 @@ def loginPage(request):
                 if user is not None:
                         login(request, user)
 
-                return redirect('templates/index.html')
+                return redirect('index.html')
 
         else:
                 messages.info(request, 'Username or password is incorrect')
                             
                 context = {}
-        return render(request, 'accounts/login.html', context)
+        return render(request, 'login.html', context)
 
 def logoutUser(request):
     logout(request)
-    return redirect('accounts/login.html')
+    return redirect('login.html')
 
-@login_required(login_url='/accounts/login.html/')
+@login_required(login_url='login.html')
 def index(request):
-      return render(request, 'templates/index.html')
+      return render(request, 'index.html')
 
 
 

@@ -1,5 +1,7 @@
 from django.db import models
 import datetime as dt
+from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -66,7 +68,7 @@ class Event(models.Model):
         return event
 
 
-class (models.Model):
+class EmailRecipient(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
 
