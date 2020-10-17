@@ -1,3 +1,9 @@
-.h3 {
-	text-align: center;
+.jango {
+    background-image: url(../photos/music.jpeg);
+}
+html {
+    margin: 0;
+	padding: 0;
+	height: 100%;
+			
 }
