@@ -20,7 +20,7 @@
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
-			background: #1C2331!important;
+			background:#ffffff00;
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -65,11 +65,7 @@
 			box-shadow: none !important;
 			outline: 0px !important;
 		}
-		.h3 {
-			color: #1C2331!important;
-		}
-    
-
+		
 		#messages{
 			background-color: grey;
 			color: #fff;
@@ -81,7 +77,7 @@
 
 </head>
 <body>
-
+<div class="nutella">
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -110,10 +106,12 @@
                 <input type="submit" class="btn btn-primary btn-sm" value="Login">
                  </div>
 				 <input type="hidden" name="next" value="{{next}}">
+				 <div id="errors">
 				 
 				 {% if form.errors %}
-				 <p> Password or Username is incorrect </p>
+				 <p> Wrong password or Username Please Check your credentials again </p>
 				 {% endif %} 
+				</div>
 
 					</form>
 					
@@ -123,6 +121,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 
