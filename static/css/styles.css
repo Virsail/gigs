@@ -1,16 +1,11 @@
 .jango {
     background-image: url(../photos/music.jpeg);
 }
-html {
+body,html {
     margin: 0;
 	padding: 0;
-	height: 100%;
-			
-}
-.bom {
+    height: 100%;
     background-image: url(../images/music.jpeg);
-}
-h2 {
-    text-align: center;
-    color: teal;
+    
+			
 }
