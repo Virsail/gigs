@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 from django.contrib import admin
 from django.conf import settings
@@ -8,6 +8,9 @@ app_name = 'eventsupdate'
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^$', views.events_today, name = 'eventsToday'),
+    
+    
     
 ]
 if settings.DEBUG:
