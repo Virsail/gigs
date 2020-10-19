@@ -3,7 +3,8 @@ from .models import Event
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib .auth.models import User
 from django import forms
-#from .models import Article
+
+
 class EventForm(ModelForm):
      class Meta:
          model = Event
@@ -22,16 +23,16 @@ class CreateUserForm( UserCreationForm):
 
 
 
-class NewsLetterForm(forms.Form):
+class EventLetterForm(forms.Form):
     your_name = forms.CharField(label='First Name',max_length=30)
     email = forms.EmailField(label='Email')
 
-#class NewArticleForm(forms.ModelForm):
-#    class Meta:
-#        model = Article
-#        exclude = ['editor', 'pub_date']
-#        widgets = {
-#            'tags': forms.CheckboxSelectMultiple(),
-#        }
+class NewEventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        exclude = ['EventOrganizer', 'pub_date']
+        widgets = {
+            'tags': forms.CheckboxSelectMultiple(),
+        }
 
 
