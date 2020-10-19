@@ -4,73 +4,53 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 
 # Create your models here.
-
-
 class User(models.Model):
     first_name = models.CharField(max_length =30)
     last_name = models.CharField(max_length =30)
     email = models.EmailField()
-
+    
 
     def __str__(self):
         return self.first_name
     class meta:
         ordering =['name']
     
-    def save_user(self):
+    def save_editor(self):
         self.save()
 
-class Ticket(models.Model):
+
+class tickets(models.Model):
     name = models.CharField(max_length =30)
 
     def __str__(self):
         return self.name
 
-
-class Category(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
-
-    def save_category(self):
-        self.save()
-
-    def delete_category(self):
-        self.delete()
-
-
 class Event(models.Model):
     title = models.CharField(max_length =60)
     post = HTMLField()
-    User = models.ForeignKey('User', on_delete=models.CASCADE)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    Ticket = models.ManyToManyField(Ticket)
+    User = models.ForeignKey(User,on_delete=models.CASCADE)
+    tickets = models.ManyToManyField(tickets)
     pub_date = models.DateTimeField(auto_now_add=True)
     event_image = models.ImageField(upload_to = 'events/')
 
     def __str__(self):
         return self.title
     @classmethod
-    def todays_event(cls):
+    def todays_news(cls):
         today = dt.date.today()
-        event = cls.objects.filter(pub_date__date = today)
-        return event
+        news = cls.objects.filter(pub_date__date = today)
+        return news
     
     @classmethod
-    def upcoming_event(cls,date):
-        event = cls.objects.filter(pub_date__date = date)
-        return event
+    def days_news(cls,date):
+        news = cls.objects.filter(pub_date__date = date)
+        return news
     
     @classmethod
     def search_by_title(cls,search_term):
-        event = cls.objects.filter(title__icontains=search_term)
-        return event
+        news = cls.objects.filter(title__icontains=search_term)
+        return news
 
-
-class EmailRecipient(models.Model):
+class NewsLetterRecipients(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
-
-
-

@@ -1,38 +1,7 @@
-{%extends 'all-events/base.html'%}
-{% block content %}
-<div class="joho">
-<div class="gallery pt-5">
-    <h2>Events Pub</h2>
-    <div class="image-gallery">
-      <a href="./images/gallery1.jpeg" class="img-1">
-        <i class="fa fa-expand" aria-hidden="true"></i>
-      </a>
-      <a href="./images/gallery2.jpeg" class="img-2">
-        <i class="fa fa-expand" aria-hidden="true"></i>
-      </a>
-      <a href="./images/gallery3.jpeg" class="img-3">
-        <i class="fa fa-expand" aria-hidden="true"></i>
-      </a>
-      <a href="./images/gallery4.jpeg" class="img-4">
-        <i class="fa fa-expand" aria-hidden="true"></i>
-      </a>
-      <a href="./images/gallery5.jpeg" class="img-5">
-        <i class="fa fa-expand" aria-hidden="true"></i>
-      </a>
-      <a href="./images/gallery6.jpeg" class="img-6">
-        <i class="fa fa-expand" aria-hidden="true"></i>
-      </a>
-      <a href="./images/gallery7.jpeg" class="img-7">
-        <i class="fa fa-expand" aria-hidden="true"></i>
-      </a>
-      <a href="./images/gallery8.jpeg" class="img-8">
-        <i class="fa fa-expand" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-  </div>
-{% endblock %}
+{%extends 'all-news/base.html'%}
 {% load static %}
+{% load bootstrap4 %}
+{% block content %}
 {{block.super}}
 
 <div class="container">
@@ -59,6 +28,7 @@
               <form  action="{%url 'newsToday'%}" method="post" class="card-text">
                 {%csrf_token%}
           
+                {% bootstrap_form letterForm layout='inline' %}
                 <input type="submit" value="Subscribe">
               </form>
             </div>
@@ -67,11 +37,9 @@
     </div>
 </div>
   
-
+{% endblock %}
 
 {% block scripts %} 
   {{block.super}}
   <script type="text/javascript" src="{%static 'js/newsletter.js'%}"></script>
 {% endblock %}
-
- 

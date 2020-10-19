@@ -18,7 +18,7 @@
     background-image: url(../images/event4.jpeg);
 }
 
-.nav {
+.nava {
     height: 20px;
 }
 
@@ -80,30 +80,47 @@
     opacity: 0;
     transition: opacity .5s;
 }
+
+.gallery pt-5 {
+    background-color: #1C2331;
+}
 .image-gallery a:hover i,
 .image-gallery a:hover::before{
     opacity: 1;
 }
+.joho {
+    background-color: #1C2331;
+}
 .img-1{
     grid-area: img-1;
-    min-height: 50.5rem;
+    min-height: 20.5rem;
     background-image: url(../images/gallery1.jpeg);
 }
 .img-2{
     grid-area: img-2;
     background-image: url(../images/gallery2.jpeg);
+    min-height: 20.5rem;
 }
 .img-3{
     grid-area: img-3;
-    background-image: url(../images/gallery3.jpeg);
+    background-image: url(../images/gallery3.jpg);
+    min-height: 20.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 200vh;
 }
 .img-4{
     grid-area: img-4;
     background-image: url(../images/gallery4.jpeg);
+    min-height: 20.5rem;
+    height: 20.5rem;
+    padding-bottom: 25rem;
+    padding-top: 25rem;
 }
 .img-5{
     grid-area: img-5;
     background-image: url(../images/gallery5.jpeg);
+    min-height: 20.5rem;
 }
 .img-6{
     grid-area: img-6;
@@ -133,4 +150,52 @@
         'img-8 img-8 img-8 img-8';
     }
 }
+.colors {
+    background-color: #1C2331;
+}
+.masaba {
+    background-image: url(../images/gallery1.jpeg);
+}
+.masaba1 {
+    background-image: url(../images/gallery2.jpeg);
+}
+.masaba2 {
+    background-image: url(../images/gallery3.jpg);
+}
+.masaba3 {
+    background-image: url(../images/gallery4.jpeg);
+}
+.masaba4 {
+    background-image: url(../images/gallery5.jpeg);
+}
+.masaba5 {
+    background-image: url(../images/gallery6.jpeg);
 
+}
+.masaba6 {
+    background-image: url(../images/gallery7.jpeg);
+
+}
+.masaba7 {
+    background-image: url(../images/gallery8.jpeg);
+
+}
+.section5 {
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+}
+.img-fluid {
+    padding-bottom: 1rem;
+}
+#j1,#j2,#j3,#j4,#j5,#j6,#j7,#j8 {
+    position: absolute;
+    top: 0%;
+    background-color: rgba(255,255,255,0.6);
+    width: 100%;
+    height: 100%;
+    padding: 70px 0;
+    display: none;
+}
+.work-img {
+    position: relative;
+}
