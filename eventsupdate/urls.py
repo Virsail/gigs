@@ -8,7 +8,7 @@ app_name = 'eventsupdate'
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^$', views.events_today, name = 'eventsToday'),
+    url(r'^today/$', views.events_today, name = 'eventstoday'),
     url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.show_events,name = 'showEvent'),
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^event/(\d+)',views.event,name ='event'),

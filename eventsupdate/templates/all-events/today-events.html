@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {{block.super}}
+{% load bootstrap3 %}
 
 <div class="container">
 
@@ -24,7 +25,7 @@
               <h5 class="card-title">Subscribe for a Newsletter!!</h5>
               {% comment %} <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> {% endcomment %}
               <p class="card-text"></p>
-              <form  action="{%url 'newsToday'%}" method="post" class="card-text">
+              <form  action="/today/" method="post" class="card-text">
                 {%csrf_token%}
           
                 {% bootstrap_form letterForm layout='inline' %}
@@ -42,3 +43,5 @@
   {{block.super}}
   <script type="text/javascript" src="{%static 'js/newsletter.js'%}"></script>
 {% endblock %}
+
+

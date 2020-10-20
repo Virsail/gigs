@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'eventsupdate',
     'tinymce',
-    'bootstrap4'
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
