@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>New Event</title>
+  {{form.media}}
+
+{% block styles %} 
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  {% endblock %}
+
+</head>
+
+<body>
+  {% include "navbar.html" %}
+<div class="container">
+
+  <form  action="{%url 'new-article'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+
+    
+    <input type="submit" class="btn btn-success btn-lg" value="Post">
+  </form>
+
+   {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   {% endblock %}
+</div>
+
+</body>
+
+</html>

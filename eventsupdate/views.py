@@ -64,37 +64,19 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('login.html')
+    return render(request, 'login.html')
 
 #@login_required(login_url='/accounts/login/')
 def index(request):
       return render(request, 'index.html')
 
 
+
 def events_today(request):
     date = dt.date.today()
-    news = Article.todays_news()
+    event = Event.todays_event()
     if request.method == 'POST':
-            form = NewsLetterForm(request.POST)
-            if form.is_valid():
-                print('valid')
-                name = form.cleaned_data['your_name']
-                email = form.cleaned_data['email']
-                recipient = NewsLetterRecipients(name = name,email =email)
-                recipient.save()
-                send_welcome_email(name,email)
-
-
-                HttpResponseRedirect('events_today')
-    else:
-        form = NewsLetterForm()
-        return render(request, 'all-news/today-news.html',{'date': date,"news":news,"letterForm":form})
-
-def news_today(request):
-    date = dt.date.today()
-    news = Article.todays_news()
-    if request.method == 'POST':
-         form = NewsLetterForm(request.POST)
+         form = EventLetterForm(request.POST)
          if form.is_valid():
               print('valid')
               name = form.cleaned_data['your_name']
@@ -104,12 +86,12 @@ def news_today(request):
               send_welcome_email(name,email)
 
 
-    #         HttpResponseRedirect('news_today')
-    # else:
-    form = NewsLetterForm()
-    return render(request, 'all-news/today-news.html',{'date': date,"news":news,"letterForm":form})
+              HttpResponseRedirect('events_today')
+    else:
+     form = EventLetterForm()
+    return render(request, 'all-events/today-events.html',{'date': date,"event":event,"letterForm":form})
 
-def newsletter(request):
+def eventletter(request):
     name = request.POST.get('your_name')
     email = request.POST.get('email')
 
@@ -119,7 +101,7 @@ def newsletter(request):
     data = {'success': 'You have been successfully added to mailing list'}
     return JsonResponse(data)
 
-def past_days_news(request,past_date):
+def show_events(request,past_date):
     
     try:
         # Converts data from the string Url
@@ -130,69 +112,49 @@ def past_days_news(request,past_date):
         assert False
 
     if date == dt.date.today():
-        return redirect(news_today)
+        return redirect(events_today)
     
-    news = Article.days_news(date)
-    return render(request, 'all-news/past-news.html', {"date":date,"news":news})
+    event = Event.days_event(date)
+    return render(request, 'all-events/show-events.html', {"date":date,"event":event})
 
 def search_results(request):
     
-    if 'article' in request.GET and request.GET["article"]:
-        search_term = request.GET.get("article")
-        searched_articles = Article.search_by_title(search_term)
+    if 'event' in request.GET and request.GET["event"]:
+        search_term = request.GET.get("event")
+        searched_events = Event.search_by_title(search_term)
         message = f"{search_term}"
 
-        return render(request, 'all-news/search.html',{"message":message,"articles": searched_articles})
+        return render(request, 'all-events/search.html',{"message":message,"events": searched_events})
 
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'all-news/search.html',{"message":message})
+        message = "You haven't searched for any events"
+        return render(request, 'all-events/search.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')    
-def article(request,article_id):
+def event(request,event_id):
     try:
-        article = Article.objects.get(id = article_id)
+        event = Event.objects.get(id = event_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"all-news/article.html", {"article":article})
+    return render(request,"all-events/event.html", {"event":event})
 
 @login_required(login_url='/accounts/login/')
-def new_article(request):
+def new_event(request):
     current_user = request.user
     if request.method == 'POST':
-        form = NewArticleForm(request.POST, request.FILES)
+        form = NewEventForm(request.POST, request.FILES)
         if form.is_valid():
-            article = form.save(commit=False)
-            article.editor = current_user
-            article.save()
-        return redirect('newsToday')
+            event = form.save(commit=False)
+            event.editor = current_user
+            event.save()
+        return redirect('eventsToday')
     else:
-        form = NewArticleForm()
-    return render(request, 'new_article.html', {"form": form})
+        form = NewEventForm()
+    return render(request, 'new_event.html', {"form": form})
 
 
 
 # Create your views here.
-def news_today(request):
-    date = dt.date.today()
-    news = Article.todays_news()
-    if request.method == 'POST':
-        form = NewsLetterForm(request.POST)
-        if form.is_valid():
-            print('valid')
-            name = form.cleaned_data['your_name']
-            email = form.cleaned_data['email']
-            recipient = NewsLetterRecipients(name = name,email =email)
-            recipient.save()
-            send_welcome_email(name,email)
-
-
-            HttpResponseRedirect('news_today')
-    else:
-     form = NewsLetterForm()
-    return render(request, 'all-news/today-news.html',{'date': date,"news":news,"letterForm":form})
-
-
 
 
 
