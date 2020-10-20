@@ -80,7 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'events.wsgi.application'
 
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
