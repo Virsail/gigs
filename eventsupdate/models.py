@@ -15,7 +15,7 @@ class EventOrganizer(models.Model):
     class meta:
         ordering =['name']
     
-    def save_editor(self):
+    def save_eventorganizer(self):
         self.save()
 
 
@@ -28,7 +28,7 @@ class tickets(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length =60)
     post = HTMLField(default='')
-    user = models.ForeignKey(User,on_delete=models.CASCADE,default='')
+    eventorganizer = models.ForeignKey(User,on_delete=models.CASCADE,default='')
     category = models.ForeignKey('Category', on_delete=models.CASCADE,default='')
     tickets = models.ManyToManyField(tickets)
     pub_date = models.DateTimeField(auto_now_add=True)
@@ -39,18 +39,18 @@ class Event(models.Model):
     @classmethod
     def todays_event(cls):
         today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
+        event = cls.objects.filter(pub_date__date = today)
+        return event
     
     @classmethod
-    def days_news(cls,date):
-        news = cls.objects.filter(pub_date__date = date)
-        return news
+    def days_event(cls,date):
+        event = cls.objects.filter(pub_date__date = date)
+        return event
     
     @classmethod
     def search_by_title(cls,search_term):
-        news = cls.objects.filter(title__icontains=search_term)
-        return news
+        event = cls.objects.filter(title__icontains=search_term)
+        return event
 
 class NewsLetterRecipients(models.Model):
     name = models.CharField(max_length = 30)

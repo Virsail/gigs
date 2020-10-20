@@ -32,7 +32,7 @@ class NewEventForm(forms.ModelForm):
         model = Event
         exclude = ['EventOrganizer', 'pub_date']
         widgets = {
-            'tags': forms.CheckboxSelectMultiple(),
+            'tickets': forms.CheckboxSelectMultiple(),
         }
 
 
