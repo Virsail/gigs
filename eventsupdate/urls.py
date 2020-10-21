@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^$', views.event_today, name = 'eventsToday'),
     url(r'^search/$', views.search_results, name='search_results'),
-    url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_news,name = 'pastNews'),
+    url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.show_events,name = 'showEvents'),
     url(r'^event/(\d+)',views.event,name ='event'),
     url(r'^new/event$', views.new_event, name='new-event'),
     url(r'^ajax/eventletter/$', views.eventletter, name='eventletter')  
