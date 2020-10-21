@@ -94,7 +94,7 @@
 .img-1{
     grid-area: img-1;
     min-height: 20.5rem;
-    background-image: url(../images/gallery1.jpeg);
+    background-image: url(../images/maxresdefault.jpg);
 }
 .img-2{
     grid-area: img-2;
@@ -111,15 +111,14 @@
 }
 .img-4{
     grid-area: img-4;
-    background-image: url(../images/gallery4.jpeg);
+    background-image: url(../images/7.safaricom-jazz.jpg);
     min-height: 20.5rem;
-    height: 20.5rem;
-    padding-bottom: 25rem;
-    padding-top: 25rem;
+    min-height: 20.5rem;
+    
 }
 .img-5{
     grid-area: img-5;
-    background-image: url(../images/gallery5.jpeg);
+    background-image: url(../images/olakira.jpeg);
     min-height: 20.5rem;
 }
 .img-6{
@@ -129,11 +128,11 @@
 }
 .img-7{
     grid-area: img-7;
-    background-image: url(../images/gallery7.jpeg);
+    background-image: url(../images/5.rusinga.jpg);
 }
 .img-8{
     grid-area: img-8;
-    background-image: url(../images/gallery8.jpeg);
+    background-image: url(../images/4.rusinga.jpg);
 }
 
 
