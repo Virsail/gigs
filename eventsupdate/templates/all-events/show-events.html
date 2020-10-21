@@ -1,29 +1,29 @@
-{%extends 'all-news/base.html'%}
+{%extends 'all-events/base.html'%}
 
 {% block content %}
 {{block.super}}
 <!-- <div class="container"> -->
 
-    <!-- Looping through news   -->
-    {% for news_item in news %}
+    <!-- Looping through event   -->
+    {% for event_item in event %}
   
     <div class="row">
         <div class="col-md-2"></div>
-      <!-- displaying News articles -->
+      <!-- displaying events articles -->
       <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
-        <h2 class="text-center"> {{ news_item.title }} </h2>
-        <p class="text-center">{{news_item.post}} </p>
+        <h2 class="text-center"> {{ event_item.title }} </h2>
+        <p class="text-center">{{event_item.post}} </p>
       </div>
       <div class="col-md-4">
-         <!--Display news Article images  -->
-      <img src="{{news_item.article_image.url}}" class="img-responsive" alt="Image">
+         <!--Display event  images  -->
+      <img src="{{event_item.event_image.url}}" class="img-responsive" alt="Image">
       </div>
       <div class="col-md-2"></div>
     </div>
   
     {% empty %}
     <div class="row">
-      <h2 class="text-center">There No News Items</h2>
+      <h2 class="text-center">There No Events Today, Stay home and remember to sanitize</h2>
     </div>
     {% endfor %}
   

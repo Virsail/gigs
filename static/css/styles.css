@@ -199,3 +199,7 @@
 .work-img {
     position: relative;
 }
+.card-body {
+    background-color: #1C2331;
+    margin-top: 20px;
+}

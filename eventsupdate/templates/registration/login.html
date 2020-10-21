@@ -1,6 +1,7 @@
 {%extends "registration/base.html"%}
 {% block content %}
 
+
 <head>
 	
 
@@ -83,7 +84,8 @@
 				</div>
 				<div class="d-flex justify-content-center form_container">
 					<form action="/accounts/login/" method="post">
-                    {% csrf_token %}
+					{% csrf_token %}
+					
             
 						<div class="input-group mb-3">
 							<div class="input-group-append">
