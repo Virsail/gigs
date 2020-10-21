@@ -72,7 +72,7 @@ def index(request):
 
 
 
-def events_today(request):
+def event_today(request):
     date = dt.date.today()
     event = Event.todays_event()
     if request.method == 'POST':
@@ -86,7 +86,7 @@ def events_today(request):
               send_welcome_email(name,email)
 
 
-              HttpResponseRedirect('events_today')
+              HttpResponseRedirect('event_today')
     else:
      form = EventLetterForm()
     return render(request, 'all-events/today-events.html',{'date': date,"event":event,"letterForm":form})
@@ -119,16 +119,16 @@ def show_events(request,past_date):
 
 def search_results(request):
     
-    if 'event' in request.GET and request.GET["event"]:
-        search_term = request.GET.get("event")
-        searched_events = Event.search_by_title(search_term)
-        message = f"{search_term}"
+    # if 'event' in request.GET and request.GET["event"]:
+    #     search_term = request.GET.get("event")
+    #     searched_events = Event.search_by_title(search_term)
+    #     message = f"{search_term}"
 
-        return render(request, 'all-events/search.html',{"message":message,"events": searched_events})
+    #     return render(request, 'all-events/search.html',{"message":message,"events": searched_events})
 
-    else:
-        message = "You haven't searched for any events"
-        return render(request, 'all-events/search.html',{"message":message})
+    # else:
+    message = "You haven't searched for any events"
+    return render(request, 'all-events/search.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')    
 def event(request,event_id):
