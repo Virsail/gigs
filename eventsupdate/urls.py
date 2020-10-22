@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 # app_name = 'eventsupdate'
 
 urlpatterns = [
+    url(r'^registerPage/$', views.registerPage, name='registerPage'),
     url(r'^$', views.event_today, name = 'eventsToday'),
     url(r'^search/$', views.search_results, name='search_results'),
     url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.show_events,name = 'showEvents'),

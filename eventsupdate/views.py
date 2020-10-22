@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm
+from .forms import SignUpForm
 from .models import Event, NewsLetterRecipients
 import datetime as dt
 from .email import send_welcome_email
@@ -20,23 +20,19 @@ from .forms import EventLetterForm, NewEventForm
 
 
 def registerPage(request):
-     if request.user.is_authenticated:
-         return redirect('index.html')
-     else:
-            form = CreateUserForm
      if request.method == 'POST':
-                 form = UserCreationForm(request.POST)
-     if form.is_valid():
-        form.save
-        user = form.cleaned_data.get('username')
-
-        messages.success(request, 'Account has been created Successfully for ' + user)
-
-        return redirect('login.html')
-
-        context = {'form':form}
-        return render(request, 'register.html', context)
-
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            messages.success(request, 'Account has been created Successfully for ' + user)
+            return redirect('today-events.html')
+     else:
+        form = SignUpForm()
+        return render(request, 'registration/registration_form.html', {'form': form})
 
 
 def loginPage(request):
@@ -54,7 +50,7 @@ def loginPage(request):
                 if user is not None:
                         login(request, user)
 
-                return redirect('index.html')
+                #return redirect('index.html')
 
         else:
                 messages.info(request, 'Username or password is incorrect')
@@ -65,6 +61,8 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return render(request, 'login.html')
+
+  
 
 #@login_required(login_url='/accounts/login/')
 def index(request):
@@ -86,9 +84,9 @@ def event_today(request):
               send_welcome_email(name,email)
 
 
-              HttpResponseRedirect('event_today')
-    else:
-     form = EventLetterForm()
+    #          HttpResponseRedirect('event_today')
+    # else:
+    form = EventLetterForm()
     return render(request, 'all-events/today-events.html',{'date': date,"event":event,"letterForm":form})
 
 def eventletter(request):
@@ -119,16 +117,16 @@ def show_events(request,past_date):
 
 def search_results(request):
     
-    # if 'event' in request.GET and request.GET["event"]:
-    #     search_term = request.GET.get("event")
-    #     searched_events = Event.search_by_title(search_term)
-    #     message = f"{search_term}"
+    if 'event' in request.GET and request.GET["event"]:
+        search_term = request.GET.get("event")
+        searched_events = Event.search_by_title(search_term)
+        message = f"{search_term}"
 
-    #     return render(request, 'all-events/search.html',{"message":message,"events": searched_events})
+        return render(request, 'all-events/search.html',{"message":message,"events": searched_events})
 
-    # else:
-    message = "You haven't searched for any events"
-    return render(request, 'all-events/search.html',{"message":message})
+    else:
+     message = "Stay home and remember to sanitize"
+     return render(request, 'all-events/search.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')    
 def event(request,event_id):
@@ -154,7 +152,7 @@ def new_event(request):
 
 
 
-# Create your views here.
+
 
 
 

@@ -28,7 +28,7 @@ class tickets(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length =60)
     post = HTMLField(default='')
-    eventorganizer = models.ForeignKey(User,on_delete=models.CASCADE,default='')
+    eventorganizer = models.ForeignKey(EventOrganizer,on_delete=models.CASCADE,default='')
     category = models.ForeignKey('Category', on_delete=models.CASCADE,default='')
     tickets = models.ManyToManyField(tickets)
     pub_date = models.DateTimeField(auto_now_add=True)

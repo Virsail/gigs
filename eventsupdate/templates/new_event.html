@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load bootstrap3 %} {% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -9,11 +9,11 @@
   <title>New Event</title>
   {{form.media}}
 
-{% block styles %} 
+{% block styles %} {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  {% endblock %}
+{% endblock %}
 
 </head>
 
@@ -24,13 +24,13 @@
   <form  action="{%url 'new-event'%}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
-    
+    {% bootstrap_form form%}
     <input type="submit" class="btn btn-success btn-lg" value="Post">
   </form>
 
    {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   {% endblock %}
+  {% bootstrap_javascript %}{% endblock %}
 </div>
 
 </body>

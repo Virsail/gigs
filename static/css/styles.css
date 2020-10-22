@@ -31,11 +31,18 @@
     height: 100vh;
     font-family: 'Sawarabi Mincho', sans-serif;
 } */
+#navbarNav {
+    background-color: grey;
+}
+
 .gallery{
     width: 100%;
     max-width: 120rem;
     margin: auto;
     padding: 0 1.2rem;
+}
+.picha {
+    height: 5rem;
 }
 .image-gallery{
     display: grid;
@@ -81,9 +88,7 @@
     transition: opacity .5s;
 }
 
-.gallery pt-5 {
-    background-color: #1C2331;
-}
+
 .image-gallery a:hover i,
 .image-gallery a:hover::before{
     opacity: 1;
@@ -152,6 +157,23 @@
 .colors {
     background-color: #1C2331;
 }
+h2 {
+    color: white;
+    text-align: center;
+}
+#jampa {
+    background-color: #1C2331;
+}
+.btn btn-default {
+    color: white;
+    background-color: white;
+}
+.input-group-btn {
+    background-color: honeydew;
+}
+.akaunt {
+   background-color: gray; 
+}
 .masaba {
     background-image: url(../images/gallery1.jpeg);
 }
@@ -201,4 +223,7 @@
 .card-body {
     background-color: #1C2331;
     margin-top: 20px;
+}
+p1 {
+    color: honeydew;
 }
