@@ -1,11 +1,12 @@
 {%extends 'all-events/base.html'%}
+{%load static%}
 
  {% block content %}
 
  <div class="container">
-
+  <img src="{{event.event_image.url}}"  class="img-responsive" alt="Image">
    <div class="row">
-     <img src="{{post.event_image.url}}"  class="img-responsive" alt="Image">
+ 
    </div>
 
    <div class="row">

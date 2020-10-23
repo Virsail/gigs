@@ -8,7 +8,7 @@
 <div class="joho">
 <div class="gallery pt-5">
     <h2>Events Pub</h2>
-    <div class="image-gallery">
+    <!-- <div class="image-gallery">
       <a href="./images/gallery1.jpeg" class="img-1">
         <i class="fa fa-expand" aria-hidden="true"></i>
       </a>
@@ -33,7 +33,7 @@
       <a href="./images/gallery8.jpeg" class="img-8">
         <i class="fa fa-expand" aria-hidden="true"></i>
       </a>
-    </div>
+    </div> -->
   </div>
   </div>
 
@@ -44,16 +44,16 @@
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
-    {% for event_item in event %}
+    {% for event in events %}
       <!-- displaying event articles -->
-        <a href="{% url 'event' event_item.id %} "><h2 class="text-center"> {{ event_item.title }} </h2></a>
-        <!--Display  event images  -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <img src="{{post.event_image.url}}" class="img-responsive" alt="Image">
-    </div>
-        <div id="jose">
-        <p class="text-center">{{event_item.post|truncatechars:200}} </p>
-      </div>
+
+        
+        <a href="{% url 'event' event.id %} "><h2 class="text-center"> {{ event.title }} </h2></a>
+        
+          {%autoescape on%}
+          {{event.post|safe|truncatechars:200}} 
+          {%endautoescape%}
+        
       {% empty %}
         <h3 class="text-center">There are no upcoming events today </h3>
       <!-- Looping through events end   -->
@@ -82,7 +82,7 @@
 
 {% block scripts %} 
   {{block.super}}
-  <script type="text/javascript" src="{%static 'js/eventletter.js'%}"></script>
+  <script type="text/javascript" src="{%static 'js/eventsletter.js'%}"></script>
 {% endblock %}
 
 

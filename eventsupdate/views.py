@@ -72,7 +72,7 @@ def index(request):
 
 def event_today(request):
     date = dt.date.today()
-    event = Event.todays_event()
+    events = Event.todays_event()
     if request.method == 'POST':
          form = EventLetterForm(request.POST)
          if form.is_valid():
@@ -87,7 +87,7 @@ def event_today(request):
     #          HttpResponseRedirect('event_today')
     # else:
     form = EventLetterForm()
-    return render(request, 'all-events/today-events.html',{'date': date,"event":event,"letterForm":form})
+    return render(request, 'all-events/today-events.html',{'date': date,"events":events,"letterForm":form})
 
 def eventletter(request):
     name = request.POST.get('your_name')
@@ -96,7 +96,7 @@ def eventletter(request):
     recipient = NewsLetterRecipients(name=name, email=email)
     recipient.save()
     send_welcome_email(name, email)
-    data = {'success': 'You have been successfully added to mailing list'}
+    data = {'success': 'Welcome to Events Pub !You have been successfully added to mailing list'}
     return JsonResponse(data)
 
 def show_events(request,past_date):

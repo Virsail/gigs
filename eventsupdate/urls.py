@@ -13,10 +13,7 @@ urlpatterns = [
     url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.show_events,name = 'showEvents'),
     url(r'^event/(\d+)',views.event,name ='event'),
     url(r'^new/event$', views.new_event, name='new-event'),
-    url(r'^ajax/eventletter/$', views.eventletter, name='eventletter')  
+    url(r'^ajax/eventsletter/$', views.eventletter, name='eventsletter')  
 ]
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL,  document_root=settings.STATIC_ROOT)
-
-  
-
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
