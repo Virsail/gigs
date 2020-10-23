@@ -37,49 +37,48 @@
   </div>
   </div>
 
-
+  <div class="mountain">
+    <div class="badilisha">
 <div class="container">
-<div class="joho">
+
     <!-- Looping through events   -->
+    <div class="eventa">
     <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
+      <div class="col-md-11">
+        <div class="col-md-8">
+          </div>
+        </div>
+        </div>
+      </div>
     {% for event in events %}
       <!-- displaying event articles -->
 
         
-        <a href="{% url 'event' event.id %} "><h2 class=""> {{ event.title }} </h2></a>
+        <a href="{% url 'event' event.id %} "><h2 class="joker"> {{ event.title }} </h2></a>
         
           {%autoescape on%}
           {{event.post|safe|truncatechars:200}} 
           {%endautoescape%}
-          <!--Display event images  -->
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <img src="{{event.event_image.url}}" class="img-responsive" alt="Image">
-          </div>
+         
       {% empty %}
-    </div>
         <h3 class="text-center">There are no upcoming events today </h3>
       <!-- Looping through events end   -->
       {% endfor %}
       </div>
-      <div class="col-md-2">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Subscribe for a Newsletter!</h5>
-              {% comment %} <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> {% endcomment %}
-              <p class="card-text"></p>
-              <form  action="{%url 'eventsToday'%}" method="post" class="card-text">
-                {%csrf_token%}
-          
-                {% bootstrap_form letterForm layout='inline' %}
-                <input type="submit" value="Subscribe">
-              </form>
-            </div>
-          </div>
-        </div>
+      <div class="container-fluid">
+        <h2 style="color: white; text-align: left; ">Sign up for a newsletter</h2>
+        <form  action="{%url 'eventsToday'%}" method="post" style="width: 35vw;">
+          {%csrf_token%}
+            
+          <!-- {{ letterForm }} -->
+         <p style="color: yellow;" >{% bootstrap_form letterForm layout='inline' %}</p>
+          <input type="submit" value="Subscribe" style="height: 5vh;  color: #1C2331;">
+        </form>    
+      
+      </div>
     </div>
 </div>
+
 
   
 {% endblock %}

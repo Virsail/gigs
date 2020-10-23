@@ -160,6 +160,10 @@
 h2 {
     text-align: center;
 }
+.badilisha {
+    color: white;
+    font-size: larger;
+}
 #jampa {
     background-color: #1C2331;
 }
@@ -192,9 +196,25 @@ h2 {
     background-image: url(../images/gallery6.jpeg);
 
 }
+.joker {
+    color: #1C2331;
+}
 .masaba6 {
     background-image: url(../images/gallery7.jpeg);
 
+}
+h5 {
+    font-size: larger;
+}
+
+.col-md-1 {
+    background-image: url(../images/mountain_bggray.jpg);
+}
+.card-body {
+    background-color: gray;
+}
+.mountain {
+    background-image: url(../images/mountain_bggray.jpg);
 }
 .masaba7 {
     background-image: url(../images/gallery8.jpeg);
@@ -223,8 +243,3 @@ p1 {
     color: white;
 }
 
-.card-body {
-    height: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}

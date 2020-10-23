@@ -1,3 +1,3 @@
 Hello {{name}}
 
-Welcome to Events Pub newsletter. You will find the most exciting events!
+Welcome to Events Pub newsletter. You will find the most exciting events!<br>This is a celebrated company founded by our C.E.O @_Virsail Mbagaya
