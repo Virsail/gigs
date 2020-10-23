@@ -32,7 +32,7 @@ class Event(models.Model):
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     tickets = models.ManyToManyField(tickets)
     pub_date = models.DateTimeField(auto_now_add=True)
-    event_image = models.ImageField(upload_to = 'events/',default='')
+    event_image = models.ImageField(upload_to = 'events/')
 
     def __str__(self):
         return self.title
