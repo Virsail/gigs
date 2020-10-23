@@ -8,7 +8,7 @@
 <div class="joho">
 <div class="gallery pt-5">
     <h2>Events Pub</h2>
-    <!-- <div class="image-gallery">
+     <div class="image-gallery">
       <a href="./images/gallery1.jpeg" class="img-1">
         <i class="fa fa-expand" aria-hidden="true"></i>
       </a>
@@ -39,7 +39,7 @@
 
 
 <div class="container">
-
+<div class="joho">
     <!-- Looping through events   -->
     <div class="row">
       <div class="col-md-2"></div>
@@ -48,13 +48,17 @@
       <!-- displaying event articles -->
 
         
-        <a href="{% url 'event' event.id %} "><h2 class="text-center"> {{ event.title }} </h2></a>
+        <a href="{% url 'event' event.id %} "><h2 class=""> {{ event.title }} </h2></a>
         
           {%autoescape on%}
           {{event.post|safe|truncatechars:200}} 
           {%endautoescape%}
-        
+          <!--Display event images  -->
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <img src="{{event.event_image.url}}" class="img-responsive" alt="Image">
+          </div>
       {% empty %}
+    </div>
         <h3 class="text-center">There are no upcoming events today </h3>
       <!-- Looping through events end   -->
       {% endfor %}
@@ -86,3 +90,7 @@
 {% endblock %}
 
 
+
+
+
+    
