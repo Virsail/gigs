@@ -38,24 +38,20 @@ Clone the project folder
   
 ##### Cloning the repository:  
  ```bash 
- git clone 
+ git clone https://github.com/Virsail/gigs.git
 ```
 ##### Navigate into the folder and install requirements  
  ```bash 
-cd Picture-Globe pip install -r requirements.txt 
+cd gigs then pip install -r requirements.txt 
 ```
 ##### Install and activate Virtual  
  ```bash 
 - python3 -m venv virtual - source virtual/bin/activate  
 ```  
-##### Install Dependencies  
+##### Setup Database  
+  SetUp your database User,Password, Host then make migration  
  ```bash 
- pip install -r requirements.txt 
-```  
- ##### Setup Database  
-  SetUp your database User,Password, Host then make migrate  
- ```bash 
-python manage.py makemigrations pictures 
+python manage.py makemigrations eventsupdate 
  ``` 
  Now Migrate  
  ```bash 
@@ -65,10 +61,6 @@ python manage.py makemigrations pictures
  ```bash 
  python manage.py runserver 
 ``` 
-##### Running the application  
- ```bash 
- python manage.py server 
-```
 ##### Testing the application  
  ```bash 
  python manage.py test 
@@ -78,10 +70,14 @@ Open the application on your browser `127.0.0.1:8000`.
   
 ## Technology used  
   
-* [Python3.6](https://www.python.org/)  
-* [Django 1.11](https://docs.djangoproject.com/en/2.2/)  
+* [Python3.8](https://www.python.org/)  
+* [Django 1.11.7](https://docs.djangoproject.com/en/2.2/)  
 * [Heroku](https://heroku.com)  
-  
+* HTML
+* CSS
+* BOOTSTRAP
+* AJAX
+* JAVASCRIPT
   
 ## Known Bugs  
 * There are no known bugs currently but pull requests are allowed incase you spot a bug  
