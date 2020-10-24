@@ -4,17 +4,16 @@
 [virsail](https://github.com/virsail)  
   
 # Description  
-This is a Django application for personal gallery that allows a user to upload images for other to see and be able to to share by coping the image link.
+Python application built on Django framework that allows user to view upcoming events ,post an event and search for event ,a user also gets an email for confirmation after subscribing to event newsletter 
   
 ##  Live Link  
- Click [View Site](https://picturesharen.herokuapp.com/)  to visit the site
+ Click [View Site]()  to visit the site
   
 ## Screenshots 
 ###### Home page
  
-<img src="https://raw.githubusercontent.com/Owiti-Charles/Picture-Globe/master/static/images/landingpage.png">
  
- ###### Search results
+ ###### Login page
  <img src="https://raw.githubusercontent.com/Owiti-Charles/Picture-Globe/master/static/images/searchfood.png"> 
 
  ###### Image Details 
