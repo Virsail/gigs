@@ -34,11 +34,11 @@ Python application built on Django framework that allows user to view upcoming e
 
   
 ## Setup and Installation  
-To get the project .......  
+Clone the project folder  
   
 ##### Cloning the repository:  
  ```bash 
- https://github.com/Owiti-Charles/Picture-Globe.git 
+ git clone 
 ```
 ##### Navigate into the folder and install requirements  
  ```bash 
