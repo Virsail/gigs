@@ -86,4 +86,4 @@ ERICMBAGAYA@GMAIL.COM
 ## License 
 
 * [![License](https://img.shields.io/packagist/l/loopline-systems/closeio-api-wrapper.svg)](https://github.com/Owiti-Charles/Picture-Globe/blob/master/LICENSE)  
-* Copyright (c) 2020 **vIRSAIL**
+* Copyright (c) 2020 **VIRSAIL**
