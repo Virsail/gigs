@@ -6,8 +6,6 @@
 # Description  
 Python application built on Django framework that allows user to view upcoming events ,post an event and search for event ,a user also gets an email for confirmation after subscribing to event newsletter 
   
-##  Live Link  
- Click [View Site]()  to visit the site
   
 ## Screenshots 
 ###### Home page
