@@ -17,7 +17,10 @@ Python application built on Django framework that allows user to view upcoming e
  ![Screenshot from 2020-10-23 22-58-09](https://user-images.githubusercontent.com/66640798/97077906-30cce200-15f0-11eb-8029-71c94a59857b.png)
 
  ###### Home Page
+ ![Screenshot from 2020-10-23 22-59-00](https://user-images.githubusercontent.com/66640798/97077940-94efa600-15f0-11eb-9bb5-c2aa544f12ad.png)
+
  
+ ###### Search result
  
 ## User Story  
   
