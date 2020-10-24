@@ -21,14 +21,15 @@ Python application built on Django framework that allows user to view upcoming e
 
  
  ###### Search result
- 
+ ![Screenshot from 2020-10-23 22-59-14](https://user-images.githubusercontent.com/66640798/97077975-fadc2d80-15f0-11eb-91df-cd57c2a32d89.png)
 ## User Story  
-  
-* View different photos that interest them  
-* Click a single image to expand it and view the details of that photo  
-* Search for different categories   
-* Copy a link to the photo to share with my friends.  
-* View photos based on the location they were taken.  
+ AS a user I would like to 
+* Sign up and login to the application
+* View all events that are yet to happen 
+* Search for an event
+* Post an event
+* View different categories of events
+* Get a confirmation email when i RSVP for an event
   
 
   
