@@ -11,7 +11,7 @@ Python application built on Django framework that allows user to view upcoming e
   
 ## Screenshots 
 ###### Home page
- 
+ ![Screenshot from 2020-10-23 22-58-01](https://user-images.githubusercontent.com/66640798/97077877-eea3a080-15ef-11eb-97e8-debb3db912f2.png)
  
  ###### Login page
  <img src="https://raw.githubusercontent.com/Owiti-Charles/Picture-Globe/master/static/images/searchfood.png"> 
